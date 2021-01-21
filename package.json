@@ -1,0 +1,42 @@
+{
+  "name": "gatsby-starter-styled-components",
+  "private": true,
+  "description": "A starter for Gatsby with built-in styled components",
+  "version": "0.1.0",
+  "license": "0BSD",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "dependencies": {
+    "@hot-loader/react-dom": "^16.14.0",
+    "babel-plugin-styled-components": "^1.11.1",
+    "gatsby": "^2.26.1",
+    "gatsby-plugin-env-variables": "^2.0.0",
+    "gatsby-plugin-manifest": "^2.5.2",
+    "gatsby-plugin-offline": "^3.3.2",
+    "gatsby-plugin-react-helmet": "^3.3.14",
+    "gatsby-plugin-styled-components": "^3.3.14",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^3.11.0",
+    "styled-components": "^5.2.1",
+    "styled-reset": "^4.3.0"
+  },
+  "devDependencies": {
+    "prettier": "2.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}

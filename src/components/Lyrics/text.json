@@ -1,0 +1,180 @@
+{
+  "12": {
+    "line": "I went to Amsterdam",
+    "duration": 3,
+    "next": {
+      "after": 1,
+      "line": "without you",
+      "duration": 2
+    }
+  },
+  "15": {
+    "line": "And all I could do",
+    "duration": 2,
+    "next": {
+      "after": 1,
+      "line": "was think about you",
+      "duration": 1
+    }
+  },
+  "17": {
+    "line": "And oh-oh-oh,",
+    "duration": 4,
+    "next": {
+      "after": 2,
+      "line": "I should've known",
+      "duration": 2
+    }
+  },
+  "22": {
+    "line": "I went to Tokyo",
+    "duration": 2,
+    "next": {
+      "after": 1,
+      "line": "to let it go",
+      "duration": 1
+    }
+  },
+  "24": {
+    "line": "Drink after drink,",
+    "duration": 5,
+    "next": {
+      "after": 1,
+      "line": "but I still felt alone",
+      "duration": 4
+    }
+  },
+  "29": {
+    "line": "I should've known",
+    "duration": 2
+  },
+  "31": {
+    "line": "I went to",
+    "duration": 3,
+    "next": {
+      "after": 1,
+      "line": "so many places",
+      "duration": 2
+    }
+  },
+  "34": {
+    "line": "Looking for you",
+    "duration": 2,
+    "next": {
+      "after": 1,
+      "line": "in their faces",
+      "duration": 1
+    }
+  },
+  "36": {
+    "line": "I can feel it,",
+    "duration": 5,
+    "next": {
+      "after": 2,
+      "line": "oh, I can feel it",
+      "duration": 3
+    }
+  },
+  "41": {
+    "line": "I'm wastin' my time",
+    "duration": 7,
+    "next": {
+      "after": 3,
+      "line": "when it was always you,",
+      "duration": 4
+    }
+  },
+  "48": {
+    "line": "always you",
+    "duration": 3
+  },
+  "51": {
+    "line": "Chasin' the high",
+    "duration": 7,
+    "next": {
+      "after": 3,
+      "line": "but it was always you,",
+      "duration": 4
+    }
+  },
+  "58": {
+    "line": "always you",
+    "duration": 2
+  },
+  "60": {
+    "line": "Should've never",
+    "duration": 2,
+    "next": {
+      "after": 0.5,
+      "line": "let you go-oh-oh",
+      "duration": 2.5
+    }
+  },
+  "62": {
+    "line": "Should've never",
+    "duration": 3,
+    "next": {
+      "after": 0.5,
+      "line": "let you go-oh, my baby",
+      "duration": 2.5
+    }
+  },
+  "65": {
+    "line": "Go-oh-oh,",
+    "duration": 5,
+    "next": {
+      "after": 2,
+      "line": "oh-oh-oh",
+      "duration": 3
+    }
+  },
+  "70": {
+    "line": "I went from LAX",
+    "duration": 2.5,
+    "next": {
+      "after": 1,
+      "line": "to Heathrow",
+      "duration": 1.5
+    }
+  },
+  "73": {
+    "line": "Walked through my door,",
+    "duration": 3.5,
+    "next": {
+      "after": 1,
+      "line": "but it felt nothing like home",
+      "duration": 2.5
+    }
+  },
+  "77": {
+    "line": "'Cause you're not home",
+    "duration": 2.5
+  },
+  "80": {
+    "line": "Waiting to wrap",
+    "duration": 2.5,
+    "next": {
+      "after": 1,
+      "line": "your legs around me",
+      "duration": 1.5
+    }
+  },
+  "83": {
+    "line": "And I know you hate",
+    "duration": 2,
+    "next": {
+      "after": 1,
+      "line": "to smoke without me",
+      "duration": 1
+    }
+  },
+  "86": {
+    "line": "And, oh-oh-oh,",
+    "duration": 5,
+    "next": {
+      "after": 2,
+      "line": "now you know",
+      "duration": 3
+    }
+  }
+}
