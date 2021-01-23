@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import { Byte } from "../utils"
 
 export function useLoadMusic({ url }) {
-  const audio = useRef(new AudioContext())
+  const audio = useRef(null)
   const buffer = useRef(null)
   const durationIntervalRef = useRef(null)
   const [status, setStatus] = useState(0)
@@ -18,6 +18,8 @@ export function useLoadMusic({ url }) {
   }, [])
 
   const load = useCallback(() => {
+    const AudioContext = window.AudioContext || window.webkitAudioContext
+    audio.current = new AudioContext()
     const request = new XMLHttpRequest()
     request.addEventListener("progress", handleEvent)
     request.open("GET", url)
