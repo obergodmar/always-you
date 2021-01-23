@@ -29,6 +29,14 @@ export function Music({ data }) {
     setTextTime(text[time])
   }, [time])
 
+  useEffect(() => {
+    if (time <= 192) {
+      return
+    }
+
+    setTextTime(undefined)
+  }, [time])
+
   return !isStarted || time > 192 ? (
     <Loading status={status} handleStart={handleStart} data={data} />
   ) : (
