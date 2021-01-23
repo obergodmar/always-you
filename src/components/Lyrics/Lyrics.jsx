@@ -5,7 +5,13 @@ import { Container, Img } from "../Styled"
 import { useTransition } from "../../hooks"
 import { Line } from "./Line"
 
-const TextContainer = styled(Container)`
+const FullHeightContainer = styled(Container)`
+  position: absolute;
+  height: 100vh;
+  overflow: unset;
+`
+
+const TextContainer = styled(FullHeightContainer)`
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -13,7 +19,7 @@ const TextContainer = styled(Container)`
   align-items: center;
 `
 
-const TransparentContainer = styled(Container)`
+const TransparentContainer = styled(FullHeightContainer)`
   background-color: rgba(0, 0, 0, ${({ mode }) => Number(mode)});
 `
 
@@ -23,7 +29,7 @@ const Flip = styled.div`
   position: absolute;
   left: 0;
   transition: bottom 400ms ease;
-  visibility: ${({ cond }) => cond ? 'visible' : 'hidden'};
+  visibility: ${({ cond }) => (cond ? "visible" : "hidden")};
 
   bottom: ${({ cond }) => (cond ? "100%" : "210%")};
 `
@@ -71,13 +77,13 @@ export function Lyrics({ text, data }) {
       {previousImage >= 1 &&
         data.lyricsImages.edges[image - 1] &&
         image - 1 > 0 && (
-          <Container shown>
+          <FullHeightContainer shown>
             <Img
               fluid={
                 data.lyricsImages.edges[image - 1].node.childImageSharp.fluid
               }
             />
-          </Container>
+          </FullHeightContainer>
         )}
       {image > 0 && data.lyricsImages.edges[image] && (
         <Flip cond={previousImage === image && image !== 0}>

@@ -40,7 +40,7 @@ const Loader = styled.div`
   align-items: center;
   justify-content: center;
   position: fixed;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   padding-bottom: 0.6vmin;
   background-color: white;
