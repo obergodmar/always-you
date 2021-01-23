@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 
-const TextLine = styled.div`
+const TextLine = styled.p`
   font-size: 10vmin;
   color: black;
+  text-align: center;
+  width: 100%;
   transition: opacity 100ms ease-in-out;
 
   opacity: ${({ isShown }) => Number(isShown)};

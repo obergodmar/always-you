@@ -137,13 +137,13 @@
       "duration": 1.5
     }
   },
-  "73": {
+  "72": {
     "line": "Walked through my door,",
-    "duration": 3.5,
+    "duration": 5,
     "next": {
-      "after": 1,
+      "after": 2,
       "line": "but it felt nothing like home",
-      "duration": 2.5
+      "duration": 3
     }
   },
   "77": {
@@ -159,7 +159,7 @@
       "duration": 1.5
     }
   },
-  "83": {
+  "82": {
     "line": "And I know you hate",
     "duration": 2,
     "next": {
@@ -168,13 +168,209 @@
       "duration": 1
     }
   },
-  "86": {
+  "84": {
     "line": "And, oh-oh-oh,",
     "duration": 5,
     "next": {
       "after": 2,
       "line": "now you know",
       "duration": 3
+    }
+  },
+  "89": {
+    "line": "I'm wastin' my time",
+    "duration": 7,
+    "next": {
+      "after": 3,
+      "line": "when it was always you,",
+      "duration": 4
+    }
+  },
+  "96": {
+    "line": "always you",
+    "duration": 3
+  },
+  "99": {
+    "line": "Chasin' the high",
+    "duration": 7,
+    "next": {
+      "after": 3,
+      "line": "but it was always you,",
+      "duration": 4
+    }
+  },
+  "106": {
+    "line": "always you",
+    "duration": 2
+  },
+  "108": {
+    "line": "Should've never",
+    "duration": 2,
+    "next": {
+      "after": 0.5,
+      "line": "let you go-oh-oh",
+      "duration": 2.5
+    }
+  },
+  "110": {
+    "line": "Should've never",
+    "duration": 3,
+    "next": {
+      "after": 0.5,
+      "line": "let you go-oh, my baby",
+      "duration": 2.5
+    }
+  },
+  "113": {
+    "line": "Go-oh-oh,",
+    "duration": 4,
+    "next": {
+      "after": 2,
+      "line": "oh-oh-oh",
+      "duration": 2
+    }
+  },
+  "117": {
+    "line": "Should've never",
+    "duration": 3,
+    "next": {
+      "after": 0.5,
+      "line": "let you go-oh-oh",
+      "duration": 2.5
+    }
+  },
+  "120": {
+    "line": "Should've never",
+    "duration": 3,
+    "next": {
+      "after": 0.5,
+      "line": "let you go-oh, my baby",
+      "duration": 2.5
+    }
+  },
+  "123": {
+    "line": "Go-oh-oh,",
+    "duration": 4.5,
+    "next": {
+      "after": 2,
+      "line": "oh-oh-oh",
+      "duration": 2.5
+    }
+  },
+  "127": {
+    "line": "I went to",
+    "duration": 3,
+    "next": {
+      "after": 1,
+      "line": "so many places",
+      "duration": 2
+    }
+  },
+  "130": {
+    "line": "Looking for you",
+    "duration": 2,
+    "next": {
+      "after": 0.5,
+      "line": "in their faces",
+      "duration": 1.5
+    }
+  },
+  "132": {
+    "line": "I could feel it,",
+    "duration": 5,
+    "next": {
+      "after": 2,
+      "line": "oh, I can feel it",
+      "duration": 3
+    }
+  },
+  "137": {
+    "line": "Wastin' my time",
+    "duration": 7,
+    "next": {
+      "after": 3,
+      "line": "when it was always you,",
+      "duration": 4
+    }
+  },
+  "144": {
+    "line": "always you",
+    "duration": 2
+  },
+  "146": {
+    "line": "I was chasin' the high,",
+    "duration": 8,
+    "next": {
+      "after": 4,
+      "line": "but it was always you,",
+      "duration": 4
+    }
+  },
+  "154": {
+    "line": "always you",
+    "duration": 2
+  },
+  "156": {
+    "line": "Should've never",
+    "duration": 2,
+    "next": {
+      "after": 0.5,
+      "line": "let you go-oh-oh",
+      "duration": 2.5
+    }
+  },
+  "158": {
+    "line": "Should've never",
+    "duration": 3,
+    "next": {
+      "after": 0.5,
+      "line": "let you go-oh, my baby",
+      "duration": 2.5
+    }
+  },
+  "161": {
+    "line": "Go-oh-oh,",
+    "duration": 4,
+    "next": {
+      "after": 2,
+      "line": "oh-oh-oh",
+      "duration": 2
+    }
+  },
+  "165": {
+    "line": "Should've never",
+    "duration": 3,
+    "next": {
+      "after": 0.5,
+      "line": "let you go-oh-oh",
+      "duration": 2.5
+    }
+  },
+  "168": {
+    "line": "Should've never",
+    "duration": 3,
+    "next": {
+      "after": 0.5,
+      "line": "let you go-oh, my baby",
+      "duration": 2.5
+    }
+  },
+  "171": {
+    "line": "Go-oh-oh,",
+    "duration": 4,
+    "next": {
+      "after": 2,
+      "line": "oh-oh-oh",
+      "duration": 2
+    }
+  },
+  "179": {
+    "line": "My baby",
+    "duration": 8,
+    "next": {
+      "after": 4,
+      "line": "Oh, my baby",
+      "duration": 4
     }
   }
 }

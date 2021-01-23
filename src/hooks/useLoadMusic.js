@@ -14,7 +14,6 @@ export function useLoadMusic({ url }) {
     const loadedBytes = new Byte(e.loaded)
 
     setStatus((loadedBytes.value / totalBytes.value) * 100)
-    console.log(`${loadedBytes.toMb()}/${totalBytes.toMb()}`)
   }, [])
 
   const load = useCallback(() => {
@@ -35,13 +34,9 @@ export function useLoadMusic({ url }) {
     if (state === "not started") {
       return
     }
+
     const durationInterval = setInterval(() => {
       setTime(time => {
-        const audioState = audio.current.state
-        if (audioState !== "running") {
-          return time
-        }
-
         return time + 1
       })
     }, 1000)
@@ -50,29 +45,18 @@ export function useLoadMusic({ url }) {
   }, [state, audio])
 
   const start = useCallback(() => {
-    console.log("start")
     const source = audio.current.createBufferSource()
     source.buffer = buffer.current
     source.connect(audio.current.destination)
-    source.loop = true
+    source.loop = false
     source.start()
     setState(audio.current.state)
   }, [audio, buffer])
-
-  const playPause = useCallback(() => {
-    const audioState = audio.current.state
-    if (audioState === "running") {
-      audio.current.suspend().then(() => setState(audioState))
-    } else if (audioState === "suspended") {
-      audio.current.resume().then(() => setState(audioState))
-    }
-  }, [audio])
 
   return {
     handlers: {
       load,
       start,
-      playPause,
     },
     info: {
       status,

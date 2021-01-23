@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import url from "../../assets/music.mp3"
 
 import { useDelayedHandler, useLoadMusic } from "../../hooks"
@@ -8,12 +8,14 @@ import { Lyrics } from "../Lyrics"
 
 export function Music() {
   const {
-    handlers: { load, playPause, start },
+    handlers: { load, start },
     info: { state, status, time },
   } = useLoadMusic({ url })
   const [textTime, setTextTime] = useState(undefined)
 
   const { handle: handleStart } = useDelayedHandler({ handler: start })
+
+  const isStarted = state !== "not started"
 
   useEffect(() => {
     load()
@@ -27,24 +29,7 @@ export function Music() {
     setTextTime(text[time])
   }, [time])
 
-  const handleStartPause = useCallback(
-    e => {
-      if (state === "not started") {
-        return
-      }
-      if (e.code === "Space") {
-        playPause()
-      }
-    },
-    [playPause, state]
-  )
-
-  useEffect(() => {
-    window.addEventListener("keydown", handleStartPause)
-    return () => window.removeEventListener("keydown", handleStartPause)
-  }, [handleStartPause])
-
-  return state === "not started" ? (
+  return !isStarted ? (
     <Loading status={status} handleStart={handleStart} />
   ) : (
     <Lyrics text={textTime} />
