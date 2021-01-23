@@ -3,7 +3,8 @@ import styled from "styled-components"
 import { GiClick, ImMusic, ImVolumeHigh } from "react-icons/all"
 
 import { useInteraction, useTransition } from "../../hooks"
-import { centered, Container } from "../Styled"
+import { centered, Container, textShadow } from "../Styled"
+import { Img } from "../Styled"
 
 const TextCentered = styled.h1`
   font-family: inherit;
@@ -14,7 +15,7 @@ const TextCentered = styled.h1`
   flex-direction: column;
   align-items: flex-start;
   ${centered()};
-  transition: opacity 100ms ease-in-out;
+  transition: opacity 100ms ease;
 
   opacity: ${({ status }) => status / 100};
 `
@@ -24,6 +25,7 @@ const TextPartOne = styled.span`
   font-size: inherit;
   color: inherit;
   height: 16vmin;
+  ${textShadow()};
 `
 
 const TextPartTwo = styled(TextPartOne)`
@@ -42,7 +44,7 @@ const Loader = styled.div`
   left: 0;
   padding-bottom: 0.6vmin;
   background-color: white;
-  transition: width 100ms ease-in-out;
+  transition: width 100ms ease;
 
   height: 5vmin;
   width: ${({ status }) => `${status}vw`};
@@ -59,9 +61,10 @@ const HelpNote = styled.div`
   font-size: 4.5vmin;
   height: 5vmin;
   width: 100%;
+  ${textShadow()};
 `
 
-export function Loading({ status, handleStart }) {
+export function Loading({ status, handleStart, data }) {
   const isReady = status === 100
 
   const { isMounted, isShown, hide } = useTransition()
@@ -72,6 +75,7 @@ export function Loading({ status, handleStart }) {
 
   return (
     <Container shown={isMounted && isShown} {...eventProps}>
+      <Img fluid={data.loadingImage.childImageSharp.fluid} />
       <TextCentered status={status}>
         <TextPartOne>Always</TextPartOne>
         <TextPartTwo>You</TextPartTwo>

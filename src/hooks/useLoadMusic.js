@@ -5,6 +5,7 @@ import { Byte } from "../utils"
 export function useLoadMusic({ url }) {
   const audio = useRef(new AudioContext())
   const buffer = useRef(null)
+  const durationIntervalRef = useRef(null)
   const [status, setStatus] = useState(0)
   const [state, setState] = useState("not started")
   const [time, setTime] = useState(0)
@@ -35,14 +36,24 @@ export function useLoadMusic({ url }) {
       return
     }
 
-    const durationInterval = setInterval(() => {
+    durationIntervalRef.current = setInterval(() => {
       setTime(time => {
         return time + 1
       })
     }, 1000)
 
-    return () => clearInterval(durationInterval)
+    return () => clearInterval(durationIntervalRef.current)
   }, [state, audio])
+
+  useEffect(() => {
+    if (time <= 192) {
+      return
+    }
+
+    clearInterval(durationIntervalRef.current)
+    setTime(0)
+    setState("not started")
+  }, [time])
 
   const start = useCallback(() => {
     const source = audio.current.createBufferSource()

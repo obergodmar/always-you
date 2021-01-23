@@ -1,29 +1,32 @@
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
+import { textShadow } from "../Styled"
 
 const TextLine = styled.p`
   font-size: 10vmin;
-  color: black;
+  color: ${({ light }) => (light ? "white" : "black")};
+  ${({ light }) => light && textShadow()}
   text-align: center;
   width: 100%;
-  transition: opacity 100ms ease-in-out;
+  transition: opacity 100ms ease, transform 100ms ease, color 100ms ease, text-shadow 100ms ease;
 
-  opacity: ${({ isShown }) => Number(isShown)};
+  transform: ${({ shown }) => (shown ? "scale(1, 1)" : "scale(0.9, 0.9)")};
+  opacity: ${({ shown }) => Number(shown)};
 `
 
-export function Line({ text }) {
-  const [isShown, setIsShown] = useState(false)
+export function Line({ text, light }) {
+  const [shown, setShown] = useState(false)
 
   useEffect(() => {
     if (!text) {
       return
     }
     const showTimer = setTimeout(() => {
-      setIsShown(true)
+      setShown(true)
     }, 100)
 
     const hideTimer = setTimeout(() => {
-      setIsShown(false)
+      setShown(false)
     }, text.duration * 1000 - 100)
 
     return () => {
@@ -32,5 +35,9 @@ export function Line({ text }) {
     }
   }, [text])
 
-  return text ? <TextLine isShown={isShown}>{text.line}</TextLine> : null
+  return text ? (
+    <TextLine shown={shown} light={light}>
+      {text.line}
+    </TextLine>
+  ) : null
 }

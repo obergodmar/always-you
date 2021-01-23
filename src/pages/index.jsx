@@ -1,19 +1,23 @@
 import React, { useState } from "react"
+import { graphql } from "gatsby"
 import { Reset } from "styled-reset"
 import styled from "styled-components"
 import { GiClick } from "react-icons/all"
 
-import { centered, Container, Music } from "../components"
+import { centered, Container, Img, Music, textShadow } from "../components"
 import { useDelayedHandler, useInteraction, useTransition } from "../hooks"
 
-const Note = styled.span`
+const Note = styled.p`
   color: white;
   ${centered()};
+  ${textShadow()};
+  text-align: center;
+  width: 100%;
   font-family: inherit;
-  font-size: 7vmin;
+  font-size: 10vmin;
 `
 
-export default function Home() {
+export default function Home({ data }) {
   const { isMounted, isShown, hide } = useTransition()
   const [isStartLoading, setStartLoading] = useState(false)
   const { handle: handleStartLoading } = useDelayedHandler({
@@ -28,9 +32,10 @@ export default function Home() {
     <div>
       <Reset />
       {isStartLoading ? (
-        <Music />
+        <Music data={data} />
       ) : (
         <Container shown={isMounted && isShown} {...eventProps}>
+          <Img fluid={data.startImage.childImageSharp.fluid} />
           <Note>
             Do <GiClick /> to start
           </Note>
@@ -39,3 +44,33 @@ export default function Home() {
     </div>
   )
 }
+
+export const query = graphql`
+  query ImagesQuery {
+    lyricsImages: allFile(filter: { relativePath: { regex: "/(lyrics)/" } }) {
+        edges {
+          node {
+            childImageSharp {
+              fluid(maxWidth: 1920) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
+      }
+    startImage: file(relativePath: { eq: "start.JPEG" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    loadingImage: file(relativePath: { eq: "loading.JPEG" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+  }
+`

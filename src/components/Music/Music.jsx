@@ -6,7 +6,7 @@ import { Loading } from "../Loading"
 import text from "../Lyrics/text.json"
 import { Lyrics } from "../Lyrics"
 
-export function Music() {
+export function Music({ data }) {
   const {
     handlers: { load, start },
     info: { state, status, time },
@@ -29,9 +29,9 @@ export function Music() {
     setTextTime(text[time])
   }, [time])
 
-  return !isStarted ? (
-    <Loading status={status} handleStart={handleStart} />
+  return !isStarted || time > 192 ? (
+    <Loading status={status} handleStart={handleStart} data={data} />
   ) : (
-    <Lyrics text={textTime} />
+    <Lyrics text={textTime} data={data} />
   )
 }

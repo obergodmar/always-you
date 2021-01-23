@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 
-import { Container } from "../Styled"
+import { Container, Img } from "../Styled"
 import { useTransition } from "../../hooks"
 import { Line } from "./Line"
 
@@ -13,9 +13,26 @@ const TextContainer = styled(Container)`
   align-items: center;
 `
 
-export function Lyrics({ text }) {
+const TransparentContainer = styled(Container)`
+  background-color: rgba(0, 0, 0, ${({ mode }) => Number(mode)});
+`
+
+const Flip = styled.div`
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 0;
+  transition: bottom 400ms ease;
+
+  bottom: ${({ cond }) => (cond ? "100%" : "210%")};
+`
+
+export function Lyrics({ text, data }) {
   const { isMounted, isShown } = useTransition()
+  const [image, setImage] = useState(-1)
+  const [previousImage, setPreviousImage] = useState(-1)
   const [isSecondShown, setSecondShown] = useState(false)
+  const [light, setLight] = useState(false)
 
   useEffect(() => {
     if (!text || !text.next) {
@@ -30,10 +47,46 @@ export function Lyrics({ text }) {
     return () => clearTimeout(timer)
   }, [text])
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setImage(state => state + 1)
+    }, 10000)
+
+    return () => clearInterval(interval)
+  }, [data])
+
+  useEffect(() => {
+    setLight(image > 0 && image < 18)
+
+    const timer = setTimeout(() => {
+      setPreviousImage(image)
+    }, 600)
+
+    return () => clearTimeout(timer)
+  }, [image])
+
   return (
     <TextContainer shown={isMounted && isShown}>
-      {<Line text={text} />}
-      {isSecondShown && <Line text={text.next} />}
+      {previousImage >= 1 && data.lyricsImages.edges[image - 1] && image - 1 > 0 && (
+        <Container shown>
+          <Img
+            fluid={
+              data.lyricsImages.edges[image - 1].node.childImageSharp.fluid
+            }
+          />
+        </Container>
+      )}
+      <Flip cond={previousImage === image && image !== 0}>
+        {image > 0 && data.lyricsImages.edges[image] && (
+          <TransparentContainer shown mode={previousImage === image}>
+            <Img
+              fluid={data.lyricsImages.edges[image].node.childImageSharp.fluid}
+            />
+          </TransparentContainer>
+        )}
+      </Flip>
+      {<Line text={text} light={light} />}
+      {isSecondShown && <Line text={text.next} light={light} />}
     </TextContainer>
   )
 }
