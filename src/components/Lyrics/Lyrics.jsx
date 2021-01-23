@@ -23,6 +23,7 @@ const Flip = styled.div`
   position: absolute;
   left: 0;
   transition: bottom 400ms ease;
+  visibility: ${({ cond }) => cond ? 'visible' : 'hidden'};
 
   bottom: ${({ cond }) => (cond ? "100%" : "210%")};
 `
@@ -60,31 +61,33 @@ export function Lyrics({ text, data }) {
 
     const timer = setTimeout(() => {
       setPreviousImage(image)
-    }, 600)
+    }, 400)
 
     return () => clearTimeout(timer)
   }, [image])
 
   return (
     <TextContainer shown={isMounted && isShown}>
-      {previousImage >= 1 && data.lyricsImages.edges[image - 1] && image - 1 > 0 && (
-        <Container shown>
-          <Img
-            fluid={
-              data.lyricsImages.edges[image - 1].node.childImageSharp.fluid
-            }
-          />
-        </Container>
-      )}
-      <Flip cond={previousImage === image && image !== 0}>
-        {image > 0 && data.lyricsImages.edges[image] && (
+      {previousImage >= 1 &&
+        data.lyricsImages.edges[image - 1] &&
+        image - 1 > 0 && (
+          <Container shown>
+            <Img
+              fluid={
+                data.lyricsImages.edges[image - 1].node.childImageSharp.fluid
+              }
+            />
+          </Container>
+        )}
+      {image > 0 && data.lyricsImages.edges[image] && (
+        <Flip cond={previousImage === image && image !== 0}>
           <TransparentContainer shown mode={previousImage === image}>
             <Img
               fluid={data.lyricsImages.edges[image].node.childImageSharp.fluid}
             />
           </TransparentContainer>
-        )}
-      </Flip>
+        </Flip>
+      )}
       {<Line text={text} light={light} />}
       {isSecondShown && <Line text={text.next} light={light} />}
     </TextContainer>

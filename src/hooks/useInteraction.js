@@ -23,8 +23,7 @@ export function useInteraction({ handlers, when = true }) {
 
   return {
     eventProps: {
-      onTouchStart: handleAction,
-      onMouseDown: handleAction,
+      onClick: handleAction,
     },
   }
 }

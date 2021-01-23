@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Always You`,
-    siteUrl: `http://always-you.obergodmar.ru/`,
+    siteUrl: `https://always-you.obergodmar.ru/`,
     description: `I'm wastin' my time when it was always you`,
   },
   plugins: [
